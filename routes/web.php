@@ -14,13 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/about', function () {
-    return "Ini Halamabout";
+    return view('about',[
+        "name" => "Rafi Rahman",
+        "email" => "rafirahamnn18@gmail.com",
+        "photo" => "photo.jpg"
+    ]);
 });
 
 Route::get('/contact', function () {
-    return "Ini halaman contact";
+    return view('contact');
+});
+
+Route::get('/post', function () {
+    return view('post');
 });
