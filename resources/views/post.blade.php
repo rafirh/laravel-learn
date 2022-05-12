@@ -1,4 +1,9 @@
 @extends('layouts.main')
 @section('container')
-    <h1>This is post page.</h1>
+<article>
+    <h2>{{ $post['title'] }}</h2>
+    <h5>{{ $post['author'] }}</h5>
+    <p>{{ $post['content'] }}</p>
+</article>
+<a href="/posts">Back to posts list</a>
 @endsection
