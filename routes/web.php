@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\PostController;
-use App\Models\Posts;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,26 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home', [
-        "title" => "HOME"
-    ]);
-});
 
-Route::get('/about', function () {
-    return view('about',[
-        "title" => "ABOUT",
-        "name" => "Rafi Rahman",
-        "email" => "rafirahamnn18@gmail.com",
-        "photo" => "photo.jpg"
-    ]);
-});
 
-Route::get('/contact', function () {
-    return view('contact',[
-        "title" => "CONTACT"
-    ]);
-});
-
+Route::get('/', [AboutController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{slug}', [PostController::class, 'getOne']);
+Route::get('/contact', [ContactController::class, 'index']);

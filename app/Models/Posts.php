@@ -20,7 +20,7 @@ class Posts
     ];
     public static function all(){
         return collect(self::$blog_posts);
-    }
+    }   
     public static function find($slug){
         return static::all()->firstWhere('slug', $slug);
     }
