@@ -22,5 +22,5 @@ Yang sudah diimplementasikan:
         - $user -> all() (get all data from user table)
     7. Valet
         - Deploy a webite with local host (example.test)
-    
+            
         
