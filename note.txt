@@ -1,0 +1,26 @@
+Yang sudah diimplementasikan:
+    1. Routing:
+        - dir: Routes/web.php
+        - write: Route::get('(endpoint)', [(class controller)::class, 'function name']);
+        - example: Route::get('/', [HomeController::class, 'index']);
+    2. Models
+        - dir: App/Models
+    3. Controller
+        - dir: App/http/Controller
+    4. Partials / Component
+        - dir: resourses/views/partials
+        - example: navbar, footer, card.
+    5. Database Migration:
+        - migrate
+        - migrate:rollback
+        - migrate:fresh
+    6. Tinker
+        - how to acces: php artisan tinker
+        - $user = new App\Models\User (acces class user Models)
+        - $user = new User (create new object)
+        - $user -> save() (save object to database)
+        - $user -> all() (get all data from user table)
+    7. Valet
+        - Deploy a webite with local host (example.test)
+    
+        
