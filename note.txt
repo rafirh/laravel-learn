@@ -22,5 +22,19 @@ Yang sudah diimplementasikan:
         - $user -> all() (get all data from user table)
     7. Valet
         - Deploy a webite with local host (example.test)
+
+Method-method dalam model laravel:
+    misal = - class model: Post
+    1. Post::all(); //mendapatkan semua data dari model Post.
+    2. $post = new Post; //membuat object baru.
+    3. Post->save(); //menyimpan object post ke database.
+    4. Post::create([
+        "title" => "this is title",
+        "excerpt" => "wkwk",
+        "body" => "hahaha"
+    ]) // berfungsi untuk menambahkan data ke model post.
+    5. Post::where('title', 'wkwk') -> update (['title', 'judul baru']); //mengubah title dari 'wkwk' ke 'judul baru' dimana title = wkwk.
+    6. Post::first(); //mengambil data pertama pada model post.
+    7. Post::find(1); //mengambil data yang ber id kan 1
             
         
