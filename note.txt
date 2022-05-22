@@ -33,7 +33,7 @@ Method-method dalam model laravel:
         "excerpt" => "wkwk",
         "body" => "hahaha"
     ]) // berfungsi untuk menambahkan data ke model post.
-    5. Post::where('title', 'wkwk') -> update (['title', 'judul baru']); //mengubah title dari 'wkwk' ke 'judul baru' dimana title = wkwk.
+    5. Post::where('title', 'wkwk') -> update (['title', 'judul baru']); //mengubah title dari 'wkwk' ke 'judul baru' dimana title == wkwk.
     6. Post::first(); //mengambil data pertama pada model post.
     7. Post::find(1); //mengambil data yang ber id kan 1
             
