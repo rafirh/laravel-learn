@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{slug}', [PostController::class, 'getOne']);
+Route::get('/posts/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/getSession',[SessionController::class, 'getSession']);
