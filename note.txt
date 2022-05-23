@@ -36,5 +36,8 @@ Method-method dalam model laravel:
     5. Post::where('title', 'wkwk') -> update (['title', 'judul baru']); //mengubah title dari 'wkwk' ke 'judul baru' dimana title == wkwk.
     6. Post::first(); //mengambil data pertama pada model post.
     7. Post::find(1); //mengambil data yang ber id kan 1
+
+Episode 8: 
+    
             
         
