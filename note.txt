@@ -37,7 +37,12 @@ Method-method dalam model laravel:
     6. Post::first(); //mengambil data pertama pada model post.
     7. Post::find(1); //mengambil data yang ber id kan 1
 
-Episode 8: ()
+Episode 8: 
+    1. protected $guarded = ['id']; // berfungsi agar field id dijaga agar tidak diisi dengan mass assignment
+    2. $table->foreignId('category_id'); // berfungsi menambahkan field foreign key yang nantinya digunakan untuk relasi table
+    3. Category::function() // berfungsi untuk memanggil method yang ada di class category seperti all(), first(), create(), dll
+    
+
     
             
         
