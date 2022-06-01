@@ -41,7 +41,8 @@ Episode 8:
     1. protected $guarded = ['id']; // berfungsi agar field id dijaga agar tidak diisi dengan mass assignment
     2. $table->foreignId('category_id'); // berfungsi menambahkan field foreign key yang nantinya digunakan untuk relasi table
     3. Category::function() // berfungsi untuk memanggil method yang ada di class category seperti all(), first(), create(), dll
-    
+    4. One to many // menggunakan method hasMany(), contoh one to many adalah tabel category berelasi ke tabel post
+    5. Many to one // menggunakan method belongsTo()
 
     
             
