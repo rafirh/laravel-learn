@@ -19,7 +19,7 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/category/{category:slug}', function(Category $category){
     return view('category', [
         'title' => $category->name,
-        'posts' => $category->post,
+        'posts' => $category->posts,
         'category' => $category->name
     ]);
 });

@@ -51,6 +51,7 @@ Episode 8:
         return $this->hasMany(Post::class); // satu kategori memiliki banyak post.
     }
     8. Post::first()->category->name; // mengambil data berupa nama category berdasarkan category_id di postingan pertama.
+    9. hasMany() berkebalikan dengan belongsTo(), category hasMany() posts dan post belongsTo category.
     
     
 
