@@ -9,11 +9,20 @@ use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CookieController;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Category;
+
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact/{category:slug}', function(Category $category){
+    return view('category', [
+        'title' => $category->name,
+        'post' => $category->post,
+        'category' => $category->name
+    ]);
+});
 
 Route::get('/getSession',[SessionController::class, 'getSession']);
 Route::get('/addSession',[SessionController::class, 'addSession']);
