@@ -16,10 +16,10 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
-Route::get('/contact/{category:slug}', function(Category $category){
+Route::get('/category/{category:slug}', function(Category $category){
     return view('category', [
         'title' => $category->name,
-        'post' => $category->post,
+        'posts' => $category->post,
         'category' => $category->name
     ]);
 });
