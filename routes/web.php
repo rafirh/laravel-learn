@@ -14,7 +14,7 @@ use App\Models\Category;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('/posts/{post:slug}', [PostController::class, 'getOne']);
+Route::get('/post/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/categories', function(Category $category){
     return view('categories', [

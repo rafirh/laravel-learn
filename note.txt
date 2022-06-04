@@ -58,6 +58,8 @@ Episode 9:
     2. seeder digunakan untuk mengisi, menghapus, dan update (DML) data pada tabel tertentu.
     3. migration digunakan untuk membuat database dan tabel didalammya (DDL).
     4. php artisan db:seed // digunakan untuk menjalankan perintah yang ada di DatabaseSeeder.php.
+    5. php artisan db:seed // hanya bisa dilakukan sekali jika terdapat data yang di set unique
+    
 
     
 
