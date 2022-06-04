@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('rafi')
         ]);
 
+        User::create([
+            'name' => 'Hadi Ahmad',
+            'email' => 'hadi@gmail.com',
+            'password' => bcrypt('hadi')
+        ]);
+
         Category::create([
             'name' => 'Programming',
             'slug' => 'programming'
@@ -63,6 +69,15 @@ class DatabaseSeeder extends Seeder
             'body' => '<p>Currently studying at SMK Telkom Malang, passionate in problem solving thing and software engineering especially in back-end development. Learning to get used to working in a team or individually and is willing to learn from various fields. Always open to learn new skills such as soft skills and hard skills, being adaptive and can socialize well.</p>',
             'category_id' => 3,
             'user_id' => 1
+        ]);
+
+        Post::create([
+            'title' => 'Software Enginner',
+            'slug' => 'software-enginner',
+            'excerpt' => 'Software engineering is the branch of computer science that deals with the design,',
+            'body' => '<p>Software engineering is the branch of computer science that deals with the design, development, testing, and maintenance of software applications. Software engineers apply engineering principles and knowledge of programming languages to build software solutions for end users.</p><p>Successful engineers know how to use the right programming languages, platforms, and architectures to develop everything from computer games to network control systems. In addition to building their own systems, software engineers also test, improve, and maintain software built by other engineers.</p><p>Once you become a software engineer, you can choose which path you want to take (applications or systems) and how far you want to progress with it. You can decide to advance toward a role as a senior software engineer, or you can continue gaining certifications and experience to advance to roles like project manager or systems manager. As a software engineer, you have both flexibility and mobility to create the career experience that is most appealing to you.</p>',
+            'category_id' => 1,
+            'user_id' => 2
         ]);
     }
 }

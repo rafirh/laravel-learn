@@ -2,7 +2,7 @@
 @section('container')
 <article class="mb-5">
     <h2 class="mb-5">{{ $post->title }}</h2>
-    <p>By. Rafi Rahman in <a href="/category/{{ $post->category->slug }}">{{ $post->category->name }}</a></p>
+    <p>By. <a href="#" class="text-decoration-none">{{ $post->user->name }}</a> in <a href="/category/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
     {{-- <h5>By: {{ $post->author }}</h5> --}}
     {!! $post->body !!}
 </article>
