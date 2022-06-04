@@ -6,7 +6,7 @@
         <h3><a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a></h3>
         <p>By. Rafi Rahman in <a href="/category/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
         <p>{{ $post->excerpt }}</p>
-        <a href="/post/{{ $post->slug }}">Read more...</a>
+        <a href="/post/{{ $post->slug }}" class="text-decoration-none">Read more...</a>
     </article>
 @endforeach
 @endsection
