@@ -54,7 +54,11 @@ Episode 8:
     9. hasMany() berkebalikan dengan belongsTo(), category hasMany() posts dan post belongsTo category.
     
 Episode 9:
-    1. 
+    1. $table->foreignId('user_id'); // digunakan untuk perantara untuk merelasikan tabel posts dengan tabel user berdasarkan user_id.
+    2. seeder digunakan untuk mengisi, menghapus, dan update (DML) data pada tabel tertentu.
+    3. migration digunakan untuk membuat database dan tabel didalammya (DDL).
+    4. php artisan db:seed // digunakan untuk menjalankan perintah yang ada di DatabaseSeeder.php.
+
     
 
     
