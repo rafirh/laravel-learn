@@ -22,6 +22,10 @@ Yang sudah diimplementasikan:
         - $user -> all() (get all data from user table)
     7. Valet
         - Deploy a webite with local host (example.test)
+    8. API
+        - REST adalah REpresentational State Transfer atau gaya arsitektur untuk menyediakan standar antara sistem komputer di web, sehingga memudahkan sistem untuk saling berinteraksi.
+        - Contoh kaidah rest api adalah penggunaan endpoint yang sama dalam satu model, hanya dibedakan dari method nya saja.
+        - RESTful api adalah sebuah api yang sudah mengimplementasikan prinsip-prinsip rest api.
 
 Method-method dalam model laravel:
     misal = - class model: Post
