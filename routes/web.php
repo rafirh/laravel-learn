@@ -19,14 +19,14 @@ Route::get('/post/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/categories', function(Category $category){
-    return view('posts', [
-        'title' => 'Categories',
+    return view('categories', [
+        'title' => 'List Categories',
         'categories' => $category->latest()->get()
     ]);
 });
 Route::get('/category/{category:slug}', function(Category $category){
     return view('posts', [
-        'title' => $category->name,
+        'title' => "Posts By Category: $category->name",
         'posts' => $category->posts,
         'category' => $category->name
     ]);
@@ -37,11 +37,11 @@ Route::get('/authors', function(User $user){
         'authors' => $user->latest()->get()
     ]);
 });
-Route::get('/authors/{user:username}', function(User $user){
+Route::get('/authors/{user:username}', function(User $author){
     return view('posts', [
-        'title' => $user->name,
-        'name' => $user->name,
-        'posts' => $user->posts
+        'title' => "Posts By Authors: $author->name",
+        'name' => $author->name,
+        'posts' => $author->posts
     ]);
 });
 

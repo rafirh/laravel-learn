@@ -89,7 +89,10 @@ Episode 10:
         Post::factory(20)->create();
         // artinya membuat data untuk model post sebanyak 20 kali berdasarkan function definition di file postFactory
     9. Post::latest()->get() // digunakan untuk mengambil data dari model post dengan urutan post yang paling terbaru
-    10. 
+    
+Episode 11:
+    1. Kita bisa menggunakan satu view untuk berbagai route yang berbeda. Seperti view posts pada project ini.
+    2. 
     
 
     
