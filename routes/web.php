@@ -17,6 +17,7 @@ Route::get('/about', [AboutController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/post/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
+
 Route::get('/categories', function(Category $category){
     return view('categories', [
         'title' => 'categories',
@@ -30,17 +31,17 @@ Route::get('/category/{category:slug}', function(Category $category){
         'category' => $category->name
     ]);
 });
-Route::get('/author', function(User $user){
+Route::get('/authors', function(User $user){
     return view('authors', [
         'title' => 'author',
-        'name' => $user->latest()->get()
+        'authors' => $user->latest()->get()
     ]);
 });
 Route::get('/author/{user:slug}', function(User $user){
-    return view('autors', [
+    return view('author', [
         'title' => $user->name,
-        'user' => $user->name,
-        'post' => $user->posts
+        'name' => $user->name,
+        'posts' => $user->posts
     ]);
 });
 
