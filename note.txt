@@ -65,6 +65,9 @@ Episode 9:
     5. php artisan db:seed // hanya bisa dilakukan sekali jika terdapat data yang di set unique
     6. php artisan migrate:fresh --seed // perintah ini digunakan untuk migration database dan juga db seeding.
     7. $post->user->name // digunakan untuk mengambil data user berupa name dari model post yang berelasikan dengan model user.
+
+Episode 10:
+    1. Faker sebuah tools yang digunakan untuk membuat data palsu berbasis php.
     
 
     
