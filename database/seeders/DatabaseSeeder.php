@@ -29,22 +29,22 @@ class DatabaseSeeder extends Seeder
                 // ]);
                 
         
-        Category::create([
-            'name' => 'Programming',
-            'slug' => 'programming'
-        ]);
+        // Category::create([
+        //     'name' => 'Programming',
+        //     'slug' => 'programming'
+        // ]);
 
-        Category::create([
-            'name' => 'Design',
-            'slug' => 'design'
-        ]);
+        // Category::create([
+        //     'name' => 'Design',
+        //     'slug' => 'design'
+        // ]);
 
-        Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
-        ]);
+        // Category::create([
+        //     'name' => 'Personal',
+        //     'slug' => 'personal'
+        // ]);
 
-        User::factory(5)->create();
+        // User::factory(5)->create();
 
         Post::factory(20)->create();
 

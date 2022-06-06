@@ -10,6 +10,7 @@ use App\Http\Controllers\CookieController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Category;
+use App\Models\User;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
@@ -19,7 +20,7 @@ Route::get('/contact', [ContactController::class, 'index']);
 Route::get('/categories', function(Category $category){
     return view('categories', [
         'title' => 'categories',
-        'categories' => $category->all()
+        'categories' => $category->latest()->get()
     ]);
 });
 Route::get('/category/{category:slug}', function(Category $category){
@@ -27,6 +28,19 @@ Route::get('/category/{category:slug}', function(Category $category){
         'title' => $category->name,
         'posts' => $category->posts,
         'category' => $category->name
+    ]);
+});
+Route::get('/author', function(User $user){
+    return view('authors', [
+        'title' => 'author',
+        'name' => $user->latest()->get()
+    ]);
+});
+Route::get('/author/{user:slug}', function(User $user){
+    return view('autors', [
+        'title' => $user->name,
+        'user' => $user->name,
+        'post' => $user->posts
     ]);
 });
 
