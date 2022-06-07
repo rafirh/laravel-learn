@@ -37,7 +37,7 @@ Route::get('/authors', function(User $user){
         'authors' => $user->latest()->get()
     ]);
 });
-Route::get('/authors/{user:username}', function(User $author){
+Route::get('/authors/{author:username}', function(User $author){
     return view('posts', [
         'title' => "Posts By Authors: $author->name",
         'name' => $author->name,
