@@ -20,7 +20,7 @@ Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/categories', function(Category $category){
     return view('categories', [
-        'title' => 'List Categories',
+        'title' => 'Categories List',
         "active" => "categories",
         'categories' => $category->latest()->get()
     ]);
