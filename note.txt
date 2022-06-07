@@ -92,7 +92,8 @@ Episode 10:
     
 Episode 11:
     1. Kita bisa menggunakan satu view untuk berbagai route yang berbeda. Seperti view posts pada project ini.
-    2. n+1 Problem adalah suatu masalah yang terjadi ketika aplikasi kita mengambil data dari database, dimana kita melakulam looping terhadap data kita. Oleh karena itu, kita melakukan pemanggilan ke database secara berulang-ulang.
+    2. n+1 Problem adalah suatu masalah yang terjadi ketika aplikasi kita mengambil data dari database, dimana kita melakulan looping terhadap data kita. Oleh karena itu, kita melakukan pemanggilan ke database secara berulang-ulang.
+    3. 
     
 
     
