@@ -101,6 +101,8 @@ Episode 11:
     8. Contoh eager load:
         Post::with(['author','category'])->latest()->get()
         // Artinya: ambil data dari model post dan juga dari model author dan category, jadi kita hanya melakukan pemanggilan 3 query saja, yaitu select post, select author, dan select category.
+    9. Selain eager load ada juga lazy eager load dengan kata kunci load().
+    
 
     
 
