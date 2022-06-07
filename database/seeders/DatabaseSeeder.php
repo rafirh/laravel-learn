@@ -30,13 +30,13 @@ class DatabaseSeeder extends Seeder
                 
         
         Category::create([
-            'name' => 'Programming',
-            'slug' => 'programming'
+            'name' => 'Web Programming',
+            'slug' => 'web-programming'
         ]);
 
         Category::create([
-            'name' => 'Design',
-            'slug' => 'design'
+            'name' => 'Web Design',
+            'slug' => 'web-design'
         ]);
 
         Category::create([
@@ -46,7 +46,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory(5)->create();
 
-        Post::factory(20)->create();
+        Post::factory(30)->create();
 
         // Post::create([
         //     'title' => 'What is API ?',
