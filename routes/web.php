@@ -15,7 +15,7 @@ use App\Models\User;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/posts', [PostController::class, 'index']);
-Route::get('/post/{post:slug}', [PostController::class, 'getOne']);
+Route::get('/posts/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/categories', function(Category $category){
@@ -24,7 +24,7 @@ Route::get('/categories', function(Category $category){
         'categories' => $category->latest()->get()
     ]);
 });
-Route::get('/category/{category:slug}', function(Category $category){
+Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts', [
         'title' => "Posts By Category: $category->name",
         'posts' => $category->posts->load('author','category'),

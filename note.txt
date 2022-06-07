@@ -121,7 +121,8 @@ Episode 12:
     5. skip(param) adalah fungsi yang digunakan untuk mengskip data sebanyak parameter yang diinputkan.
         Contoh:
             @foreach ($posts->skip(1) as $post) // melakukan perulangan tetapi mengskip data sebanyak 1 dari index 0.
-    6. 
+    6. Class bootstrap:
+        - 
 
 
     
