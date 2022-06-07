@@ -97,7 +97,10 @@ Episode 11:
     4. composer require itsgoingd/clockwork // perintah untuk menginstall clockwork
     5. n+1 problem disebut juga lazy loading, jadi saat dibutuhkan saja baru dipanggil.
     6. Untuk menghindari n+1 problem kita bisa menggunakan konsep eager load.
-    7. Kita bisa 
+    7. Kita bisa menerapkap eager loop dengan fungsi with(['<namaModel1>','<namaModel2>'])
+    8. Contoh eager load:
+        Post::with(['author','category'])->latest()->get()
+        // Artinya: ambil data dari model post dan juga dari model author dan category, jadi kita hanya melakukan pemanggilan 3 query saja, yaitu select post, select author, dan select category.
 
     
 
