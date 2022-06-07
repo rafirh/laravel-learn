@@ -109,13 +109,14 @@ Episode 11:
 
 Episode 12:
     1. Kita tidak perlu lagi menuliskan fungsi with() di controller. Kita bisa membuat variable protected yang bernama $with.
-    2. Contohnya dari no. 1:
-        $author->posts->load('category','author') // di file controller
+    2. Contohnya dari no. 1: (Memindahkan eager loading ke model)
+        $post->with('category','author')->latest()->get() // di file controller post, sebelum diubah
         diubah ke:
-        $with = ['category','author']; // di file model
-        $author->posts->load('category','author')
+        $with = ['category','author']; // di file model post
+        $post->latest()->get() // di file controller post
+    3. 
 
-    
+
 
     
             
