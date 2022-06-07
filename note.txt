@@ -102,7 +102,11 @@ Episode 11:
         Post::with(['author','category'])->latest()->get()
         // Artinya: ambil data dari model post dan juga dari model author dan category, jadi kita hanya melakukan pemanggilan 3 query saja, yaitu select post, select author, dan select category.
     9. Selain eager load ada juga lazy eager load dengan kata kunci load().
-    
+    10. Lazy eager load adalah konsep mengambil data dari relasi tabel jika data parent sudah didapatkan. Seperti menampilkan post berdasarkan category, jadi post inilah yang disebut parent.
+    11. Contoh penggunaan:
+        'posts' => $author->posts->load('category','author')
+        // Artinya ambil data posts berdasarkan author, kemudian load juga category dan author berdarkan foreign key yang ada di model posts.
+    12. 
 
     
 
