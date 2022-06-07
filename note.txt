@@ -106,7 +106,14 @@ Episode 11:
     11. Contoh penggunaan:
         'posts' => $author->posts->load('category','author')
         // Artinya ambil data posts berdasarkan author, kemudian load juga category dan author berdarkan foreign key yang ada di model posts.
-    12. 
+
+Episode 12:
+    1. Kita tidak perlu lagi menuliskan fungsi with() di controller. Kita bisa membuat variable protected yang bernama $with.
+    2. Contohnya dari no. 1:
+        $author->posts->load('category','author') // di file controller
+        diubah ke:
+        $with = ['category','author']; // di file model
+        $author->posts->load('category','author')
 
     
 
