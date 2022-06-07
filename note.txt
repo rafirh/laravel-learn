@@ -95,7 +95,10 @@ Episode 11:
     2. n+1 Problem adalah suatu masalah yang terjadi ketika aplikasi kita mengambil data dari database, dimana kita melakulan looping terhadap data kita. Oleh karena itu, kita melakukan pemanggilan ke database secara berulang-ulang.
     3. Kita bisa menggunakan tool clock work untuk mengetahui berapa kali aplikasi kita melakukan pemanggilan quey ke database.
     4. composer require itsgoingd/clockwork // perintah untuk menginstall clockwork
-    5. 
+    5. n+1 problem disebut juga lazy loading, jadi saat dibutuhkan saja baru dipanggil.
+    6. Untuk menghindari n+1 problem kita bisa menggunakan konsep eager load.
+    7. Kita bisa 
+
     
 
     
