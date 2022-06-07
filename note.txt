@@ -114,8 +114,14 @@ Episode 12:
         diubah ke:
         $with = ['category','author']; // di file model post
         $post->latest()->get() // di file controller post
-    3. 
-
+    3. Kita bisa mengambil postingan pertama dengan $posts[0]
+    4. diffForHumans() adalah fungsi yang digunakan untuk merubah datetime format ke string yang mudah dibaca, seperti "2 minutes ago"
+        Contoh penggunaan diff:
+            $posts[0]->created_at->diffForHumans() // merubah data post berupa field created_at ke string yang mudah dibaca.
+    5. skip(param) adalah fungsi yang digunakan untuk mengskip data sebanyak parameter yang diinputkan.
+        Contoh:
+            @foreach ($posts->skip(1) as $post) // melakukan perulangan tetapi mengskip data sebanyak 1 dari index 0.
+    6. 
 
 
     
