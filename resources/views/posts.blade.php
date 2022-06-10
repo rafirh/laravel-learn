@@ -70,5 +70,7 @@
     @else
         <p class="text-center fs-4">Post not found.</p>
     @endif
-    {{ $posts->links() }}
+    <div class="d-flex justify-content-end py-3">
+        {{ $posts->links() }}
+    </div>
 @endsection

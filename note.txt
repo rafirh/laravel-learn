@@ -191,7 +191,18 @@ Episode 13: (Searching dan Pagination)
                 });
             });
             // artinya ketika variable $filters['category'] ada value nya, maka jalankan fungsi callback yang didalamnya ada fungsi whereHas() yang berfungsi untuk menentukan tabel mana yang akan dicari fieldnya, kemudian menjalankan fungsi callback lagi yang mempunyai parameter $query dan $category, karena $category tidak bisa diakses maka harus menggunakan perintah use ($category), kemudian barulah mereturn $query->where('slug', $category);
-        
+    11. Untuk menggunakan fitur pagination kita hanya butuh mengganti fungsi get() ke paginate(jumlah data)
+            before:
+                "posts" => $post->latest()->filter(request(['search', 'category', 'author']))->get()
+            after:
+                "posts" => $post->latest()->filter(request(['search', 'category', 'author']))->paginate(7)
+    12. Selain itu kita juga harus menambahkan navigasi paginationnya di view, berikut codenya:
+            <div class="d-flex justify-content-end"> // div ini digunakan untuk mengposisikan navigasi ke kanan
+                {{ $posts->links() }}
+            </div>
+    
+
+
     
 
 
