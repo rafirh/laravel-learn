@@ -196,7 +196,7 @@ Episode 13: (Searching dan Pagination)
                 "posts" => $post->latest()->filter(request(['search', 'category', 'author']))->get()
             after:
                 "posts" => $post->latest()->filter(request(['search', 'category', 'author']))->paginate(7)
-    12. Selain itu kita juga harus menambahkan navigasi paginationnya di view, berikut codenya:
+    12. Selain itu kita juga harus menambahkan navigasi paginationnya di view dengan memanggil fungsi links(), berikut codenya:
             <div class="d-flex justify-content-end"> // div ini digunakan untuk mengposisikan navigasi ke kanan
                 {{ $posts->links() }}
             </div>
