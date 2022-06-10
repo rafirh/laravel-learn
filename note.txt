@@ -179,7 +179,11 @@ Episode 13: (Searching dan Pagination)
                                 ->orWhere('body', 'like', '%' . $search . '%'); 
                 });
             }
-    9. 
+    9. Kita bisa mengambil url berupa string dengan request()->segment(index)
+            Contoh url: localhost/users/malang/1
+            request()->segment(1); // users
+            request()->segment(2); // malang
+            request()->segment(3); // 1
     
 
 

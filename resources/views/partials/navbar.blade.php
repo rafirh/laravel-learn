@@ -7,22 +7,22 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "home") ? 'active' : '' }}" href="/">Home</a>
+            <a class="nav-link {{ (request()->segment(1) == '') ? 'active' : '' }}" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "about") ? 'active' : '' }}" href="/about">About</a>
+            <a class="nav-link {{ (request()->segment(1) == 'about') ? 'active' : '' }}" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "posts") ? 'active' : '' }}" href="/posts">Blog</a>
+            <a class="nav-link {{ (request()->segment(1) == 'posts') ? 'active' : '' }}" href="/posts">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "categories") ? 'active' : '' }}" href="/categories">Categories</a>
+            <a class="nav-link {{ (request()->segment(1) == 'categories') ? 'active' : '' }}" href="/categories">Categories</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "authors") ? 'active' : '' }}" href="/authors">Authors</a>
+            <a class="nav-link {{ (request()->segment(1) == 'authors') ? 'active' : '' }}" href="/authors">Authors</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link {{ ($active === "contact") ? 'active' : '' }}" href="/contact">Contact</a>
+            <a class="nav-link {{ (request()->segment(1) == 'contact') ? 'active' : '' }}" href="/contact">Contact</a>
           </li>
         </ul>
       </div>
