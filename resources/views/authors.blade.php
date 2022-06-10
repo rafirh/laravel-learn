@@ -5,7 +5,7 @@
         <div class="row">
             @foreach ($authors as $author)
                 <div class="col-md-4 mb-5">
-                    <a href="/authors/{{ $author->username }}">
+                    <a href="/posts?author={{ $author->username }}">
                         <div class="card bg-dark text-white border-0">
                             <img src="https://source.unsplash.com/random/400x300?person"
                                 class="card-img" alt="{{ $author->name }}">
@@ -19,10 +19,4 @@
             @endforeach
         </div>
     </div>
-
-    {{-- @foreach ($authors as $author)
-        <article class="mb-5">
-            <h3><a href="/authors/{{ $author->slug }}" class="text-decoration-none">{{ $author->name }}</a></h3>
-        </article>
-    @endforeach --}}
 @endsection
