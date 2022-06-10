@@ -42,7 +42,7 @@
         </div>
         <div class="container">
             <div class="row">
-                @foreach ($posts as $post)
+                @foreach ($posts->skip(1) as $post)
                     <div class="col-md-4 mb-3">
                         <div class="card">
                             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)"><a
@@ -70,4 +70,5 @@
     @else
         <p class="text-center fs-4">Post not found.</p>
     @endif
+    {{ $posts->links() }}
 @endsection
