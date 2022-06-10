@@ -41,7 +41,7 @@ Method-method dalam model laravel:
     6. Post::first(); //mengambil data pertama pada model post.
     7. Post::find(1); //mengambil data yang ber id kan 1
 
-Episode 8: 
+Episode 8: (Post Category dan Eloquent)
     1. protected $guarded = ['id']; // berfungsi agar field id dijaga agar tidak diisi dengan mass assignment
     2. $table->foreignId('category_id'); // berfungsi menambahkan field foreign key yang nantinya digunakan untuk relasi table
     3. Category::function() // berfungsi untuk memanggil method yang ada di class category seperti all(), first(), create(), dll
@@ -57,7 +57,7 @@ Episode 8:
     8. Post::first()->category->name; // mengambil data berupa nama category berdasarkan category_id di postingan pertama.
     9. hasMany() berkebalikan dengan belongsTo(), category hasMany() posts dan post belongsTo category.
     
-Episode 9:
+Episode 9: (Database Seeder)
     1. $table->foreignId('user_id'); // digunakan untuk perantara untuk merelasikan tabel posts dengan tabel user berdasarkan user_id.
     2. seeder digunakan untuk mengisi, menghapus, dan update (DML) data pada tabel tertentu.
     3. migration digunakan untuk membuat database dan tabel didalammya (DDL).
@@ -66,7 +66,7 @@ Episode 9:
     6. php artisan migrate:fresh --seed // perintah ini digunakan untuk migration database dan juga db seeding.
     7. $post->user->name // digunakan untuk mengambil data user berupa name dari model post yang berelasikan dengan model user.
 
-Episode 10:
+Episode 10: (Factory dan Faker)
     1. Faker sebuah tools yang digunakan untuk membuat data palsu berbasis php.
     2. Factory adalah pabrik pembuat data otomatis, untuk membuat data ini, kita dibantu oleh faker agar data terlihat asli.
     3. php artisan make:factory <name-factory> // digunakan untuk membuat factory
@@ -90,7 +90,7 @@ Episode 10:
         // artinya membuat data untuk model post sebanyak 20 kali berdasarkan function definition di file postFactory
     9. Post::latest()->get() // digunakan untuk mengambil data dari model post dengan urutan post yang paling terbaru
     
-Episode 11:
+Episode 11: (n+1 problem)
     1. Kita bisa menggunakan satu view untuk berbagai route yang berbeda. Seperti view posts pada project ini.
     2. n+1 Problem adalah suatu masalah yang terjadi ketika aplikasi kita mengambil data dari database, dimana kita melakulan looping terhadap data kita. Oleh karena itu, kita melakukan pemanggilan ke database secara berulang-ulang.
     3. Kita bisa menggunakan tool clock work untuk mengetahui berapa kali aplikasi kita melakukan pemanggilan quey ke database.
@@ -107,7 +107,7 @@ Episode 11:
         'posts' => $author->posts->load('category','author')
         // Artinya ambil data posts berdasarkan author, kemudian load juga category dan author berdarkan foreign key yang ada di model posts.
 
-Episode 12:
+Episode 12: (Redesign UI)
     1. Kita tidak perlu lagi menuliskan fungsi with() di controller. Kita bisa membuat variable protected yang bernama $with.
     2. Contohnya dari no. 1: (Memindahkan eager loading ke model)
         $post->with('category','author')->latest()->get() // di file controller post, sebelum diubah
@@ -142,7 +142,7 @@ Episode 12:
             </div>
         </div>
 
-Episode 13:
+Episode 13: (Searching dan Pagination)
     1. 
 
 
