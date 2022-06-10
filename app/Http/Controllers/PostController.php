@@ -20,7 +20,7 @@ class PostController extends Controller
         return view('posts', [
             "title" => "All Posts" . $title,
             "active" => "posts",
-            "posts" => $post->latest()->filter(request(['search', 'category', 'author']))->get()
+            "posts" => $post->latest()->filter(request(['search', 'category', 'author']))->paginate(7)
         ]);
     }
     public function getOne(Post $post){
