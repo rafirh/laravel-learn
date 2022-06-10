@@ -13,7 +13,7 @@ class Post extends Model
     protected $with = ['category','author'];
     
     public function scopeFilter($query, array $filters){
-        if(isset($filters['search']) ? true : false){
+        if(isset($filters['search'])){
             return $query->where('title', 'like', '%' . $filters['search'] . '%')
                          ->orWhere('body', 'like', '%' . $filters['search'] . '%');
         }

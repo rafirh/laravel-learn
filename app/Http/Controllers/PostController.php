@@ -11,7 +11,7 @@ class PostController extends Controller
         return view('posts', [
             "title" => "All Posts",
             "active" => "posts",
-            "posts" => $post->latest()->filter()->get()
+            "posts" => $post->latest()->filter(request(['search']))->get()
         ]);
     }
     public function getOne(Post $post){

@@ -160,7 +160,19 @@ Episode 13: (Searching dan Pagination)
             ]);
     3. Jika query diatas digunakan untuk get data berdasarkan title, kita bisa juga menambahkan fungsi orWhere('body', 'like', '%' . request('search') . '%') agar pencariannya juga bisa berdasarkan field body.
     4. Sebenarnya select where adalah tugas dari model, jadi kita haruda memindahkan hal diatas dari controller ke post model. Dengan mendeklarasikan fungsi yang bernama scopeFilter().
-            
+        Contoh:
+            public function scopeFilter($query){
+                if(request('search')){
+                    return $query->where('title', 'like', '%' . request('search') . '%')
+                                ->orWhere('body', 'like', '%' . request('search') . '%');
+                }
+            }
+    5. Kita bisa menggunak fungsi schopeFilter tidak hanya untuk search saja, kita juga bisa untuk meng-filter post berdasarkan category dan author. Yaitu dengan cara menambahkan parameter array yang berisi request.
+    6. Kita juga bisa mengubah if seperti di function scopeFilter dengan menggunakan fungsi when().
+            COntoh:
+                $collection->when(true, callBack);
+    7. 
+    
 
 
 
