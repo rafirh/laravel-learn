@@ -171,7 +171,7 @@ Episode 13: (Searching dan Pagination)
     6. Kita juga bisa mengubah if seperti di function scopeFilter dengan menggunakan fungsi when().
             COntoh:
                 $collection->when(true, callBack);
-    7.  
+    7. 
     
 
 
