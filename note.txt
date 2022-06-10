@@ -171,7 +171,8 @@ Episode 13: (Searching dan Pagination)
     6. Kita juga bisa mengubah if seperti di function scopeFilter dengan menggunakan fungsi when().
             COntoh:
                 $collection->when(true, callBack);
-    7. 
+    7. Kita dapat mengganti fungsi isset($filters['search']) dengan $filters['search'] ?? false, jadi jika $filters['search'] itu null akan mengembalikan value false.
+    
     
 
 
