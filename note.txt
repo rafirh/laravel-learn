@@ -200,6 +200,17 @@ Episode 13: (Searching dan Pagination)
             <div class="d-flex justify-content-end"> // div ini digunakan untuk mengposisikan navigasi ke kanan
                 {{ $posts->links() }}
             </div>
+    13. Untuk navbar diatas default stylingnya dengan tailwind jadi kita harus konfigurasi dulu jika ingin menggunakan bootstrap, untuk configurasinya kita bisa buka App/Providers/AppServiceProvider.php dan tambahkan code ini di fungsi boot():
+
+            Paginator::useBootstrap();
+
+    Dan jangan lupa import class paginator nya dengan menulis code ini:
+
+            use Illuminate\Pagination\Paginator;
+
+    Episode 14:
+    1. 
+
     
 
 
