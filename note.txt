@@ -184,6 +184,14 @@ Episode 13: (Searching dan Pagination)
             request()->segment(1); // users
             request()->segment(2); // malang
             request()->segment(3); // 1
+    10. Untuk search post berdasarkan category dan title/body kita dapan menambahkan fungsi berikut pada model post (search dengan relasi tabel):
+            $query->when($filters['category'] ?? false, function($query, $category){
+                return $query->whereHas('category', function($query) use ($category){
+                    return $query->where('slug', $category);
+                });
+            });
+            // artinya ketika variable $filters['category'] ada value nya, maka jalankan fungsi callback yang didalamnya ada fungsi whereHas() yang berfungsi untuk menentukan tabel mana yang akan dicari fieldnya, kemudian menjalankan fungsi callback lagi yang mempunyai parameter $query dan $category, karena $category tidak bisa diakses maka harus menggunakan perintah use ($category), kemudian barulah mereturn $query->where('slug', $category);
+        
     
 
 
