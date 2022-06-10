@@ -169,11 +169,17 @@ Episode 13: (Searching dan Pagination)
             }
     5. Kita bisa menggunak fungsi schopeFilter tidak hanya untuk search saja, kita juga bisa untuk meng-filter post berdasarkan category dan author. Yaitu dengan cara menambahkan parameter array yang berisi request.
     6. Kita juga bisa mengubah if seperti di function scopeFilter dengan menggunakan fungsi when().
-            COntoh:
+            Contoh:
                 $collection->when(true, callBack);
     7. Kita dapat mengganti fungsi isset($filters['search']) dengan  ?? false, jadi jika $filters['search'] itu null akan mengembalikan value false.
-    8. 
-
+    8. Berikut contoh penggunaan fungsi when() di dalam method scopeFilter():
+            public function scopeFilter($query, array $filters){
+                $query->when($filters['search'] ?? false, function($query, $search){
+                   return $query->where('title', 'like', '%' . $search . '%')
+                                ->orWhere('body', 'like', '%' . $search . '%'); 
+                });
+            }
+    9. 
     
 
 
