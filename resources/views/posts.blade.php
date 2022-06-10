@@ -1,12 +1,12 @@
 @extends('layouts.main')
 @section('container')
     @if ($posts->count())
-        <h1 class="mb-5">{{ $title }}</h1>
-        <div class="row justify-content-center">
+        <h1 class="mb-3 text-center">{{ $title }}</h1>
+        <div class="row justify-content-center mb-3">
             <div class="col-md-6">
                 <form action="/posts" method="GET">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Search..." name="search">
+                        <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
                         <button class="btn btn-danger" type="submit">Search</button>
                     </div>
                 </form>

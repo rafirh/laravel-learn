@@ -8,10 +8,15 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index(Post $post){
+        $posts = $post->latest();
+        if(request('search')){
+            $posts->where('title', 'like', '%' . request('search') . '%')
+                  ->orWhere('body', 'like', '%' . request('search') . '%');
+        }
         return view('posts', [
             "title" => "All Posts",
             "active" => "posts",
-            "posts" => $post->latest()->get()
+            "posts" => $posts->get()
         ]);
     }
     public function getOne(Post $post){

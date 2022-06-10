@@ -150,7 +150,16 @@ Episode 13: (Searching dan Pagination)
 
                 </div>
             </div>
-    2. 
+    2. Untuk membuat fitur pencarian kita bisa menuliskan seperti ini pada fungsi index pada model post:
+            $posts = Post::latest(); // digunakan untuk mengambil semua data dengan urutan terbaru
+            if(request('search')){
+                $posts->where('title', 'like', '%' . request('search') . '%'); // jika terdapat request search maka akan mengambil semua data dengan tambahan fungsi where(namaKolom, like, keyword) 
+            }
+            return view('posts', [
+                'posts' => $posts->get()
+            ]);
+    3. Jika query diatas digunakan untuk get data berdasarkan title, kita bisa juga menambahkan fungsi orWhere('body', 'like', '%' . request('search') . '%') agar pencariannya juga bisa berdasarkan field body.
+
 
 
     
