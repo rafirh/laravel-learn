@@ -2,6 +2,16 @@
 @section('container')
     @if ($posts->count())
         <h1 class="mb-5">{{ $title }}</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form action="/posts" method="GET">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Search..." name="search">
+                        <button class="btn btn-danger" type="submit">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="card mb-3">
             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)"><a
                     href="/categories/{{ $posts[0]->category->slug }}"
