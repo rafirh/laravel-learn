@@ -47,11 +47,11 @@ Episode 8: (Post Category dan Eloquent)
     3. Category::function() // berfungsi untuk memanggil method yang ada di class category seperti all(), first(), create(), dll
     4. One to many // menggunakan method hasMany(), contoh one to many adalah tabel category berelasi ke tabel post
     5. Many to one // menggunakan method belongsTo()
-    6.  public function category(){
+    6.  public function category(){ // fungsi ini berada di model post
             return $this->belongsTo(Category::class); // sebuah post meiliki satu kategori 
         }
         fungsi ini digunakan untuk merelasikan model post dengan model category yang ditulis di class model post.
-    7. public function post(){
+    7. public function post(){ // fungsi ini berada di model category
         return $this->hasMany(Post::class); // satu kategori memiliki banyak post.
     }
     8. Post::first()->category->name; // mengambil data berupa nama category berdasarkan category_id di postingan pertama.
