@@ -27,7 +27,7 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+            <a href="" class="nav-link {{ (request()->segment(1) == 'login' ? 'active') : '' }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
           </li>
         </ul>
       </div>
