@@ -226,8 +226,19 @@ Episode 15 (User Registration):
         - edit: digunakan untuk menampilkan form yang digunakan untuk mengedit data yang ada.
         - update: digunakan untuk update data dari form ke database.
         - destroy: digunakan untuk menghapus data.
-    3. Ada fitur laravel yang bertugas untuk mengamankan form dari pembajakan yaitu CSRF(cross-site request forgery), jadi sebenarnya csrf adalah sebuah teknik serangan terhadap website kita, biasanya serangan ini memalsukan request dari site lain dengan url yang sesuai dengan web kita. Oleh karena itu tersedia fitur csrf yang bertugas untuk membuat token untuk mengvalidasi bahwa form tersebut berasal dari web kita. Untuk menggunakan itu kita bisa menuliskan @crfs di view form nya. Berikut codenya:
-        
+    3. Ada fitur laravel yang bertugas untuk mengamankan form dari pembajakan yaitu CSRF(cross-site request forgery), jadi sebenarnya csrf adalah sebuah teknik serangan terhadap website kita, biasanya serangan ini memalsukan request dari site lain dengan url yang sesuai dengan web kita. Oleh karena itu tersedia fitur csrf yang bertugas untuk membuat token untuk mengvalidasi bahwa form tersebut berasal dari web kita (menjaga bahwa request tersebut datangnya dari website kita). Untuk menggunakan itu kita bisa menuliskan @crfs di view form nya. Berikut codenya:
+
+        <form action="/register" method="POST">
+            @csrf // kita hanya perlu menambahkan ini di dalam form.
+            <input type="email" name="email" />
+        </form>
+
+        sebenarnya @csrf dibelakang layar, seperti ini:
+
+         <form action="/register" method="POST">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}" /> // sebenarnya @csrf melakukan ini.
+            <input type="email" name="email" />
+        </form>
     
 
 
