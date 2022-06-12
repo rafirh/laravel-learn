@@ -8,10 +8,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ContactController;
-
 use App\Http\Controllers\CookieController;
+
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\RegisterController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
@@ -35,6 +36,7 @@ Route::get('/authors', function(User $user){
 });
 
 Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
 
 Route::get('/getSession',[SessionController::class, 'getSession']);
 Route::get('/addSession',[SessionController::class, 'addSession']);
