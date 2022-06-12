@@ -7,14 +7,14 @@
             <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
             <form>
                 <div class="form-floating mb-1">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                    <label for="floatingInput">Email address</label>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                    <label for="email">Email Address</label>
                 </div>
-                <div class="form-floating">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                <div class="form-floating mb-1">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                    <label for="password">Password</label>
                 </div>
-                <button class="w-100 btn btn-lg btn-danger" type="submit">Login</button>
+                <button class="w-100 btn btn-lg btn-danger mt-3" type="submit">Login</button>
             </form>
             <small class="text-center d-block mt-3">Not registered? <a href="/register" class="text-decoration-none">Register now!</a></small>
         </main>

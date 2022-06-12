@@ -208,13 +208,12 @@ Episode 13: (Searching dan Pagination)
 
             use Illuminate\Pagination\Paginator;
 
-    Episode 14:
+    Episode 14 (Membuat view login dan register):
     1. Cara untuk membuat route yang terhubung dengan controller:
         Route::get('/login', [ControllerLogin::class, 'index']); // jadi get adalah methodnya, controller login adalah nama class controllernya, dan index adalah nama fungsi yang ada di dalam class controller yang akan dipanggil.
     2. Untuk cara cepat mengimport class, kita bisa click kanan dan pilih opsi import all classes.
     3. Jika kita ingin menengahkan text yang display inline, kita harus menambahkan display block agar bisa di centerkan, berikut codenya:
         <small class="d-block text-center">TEXT</small>
-    4.  
 
 
 
