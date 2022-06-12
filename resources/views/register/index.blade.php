@@ -4,7 +4,7 @@
         <div class="col-lg-5">
             <main class="form-registration w-100 m-auto">
                 <h1 class="h3 mb-3 fw-normal text-center">Registration Form</h1>
-                <form>
+                <form action="/register" method="POST">
                     <div class="form-floating mb-1">
                         <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                         <label for="name">Full Name</label>
