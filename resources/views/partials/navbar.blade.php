@@ -27,7 +27,7 @@
         </ul>
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="" class="nav-link">Login</a>
+            <a href="" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
           </li>
         </ul>
       </div>

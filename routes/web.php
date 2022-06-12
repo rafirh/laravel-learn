@@ -33,6 +33,8 @@ Route::get('/authors', function(User $user){
     ]);
 });
 
+Route::get('/login', [LoginController::class, 'index']);
+
 Route::get('/getSession',[SessionController::class, 'getSession']);
 Route::get('/addSession',[SessionController::class, 'addSession']);
 Route::get('/removeSession',[SessionController::class, 'deleteSession']);
