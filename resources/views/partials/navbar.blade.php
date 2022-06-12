@@ -25,9 +25,9 @@
             <a class="nav-link {{ (request()->segment(1) == 'contact') ? 'active' : '' }}" href="/contact">Contact</a>
           </li>
         </ul>
-        <ul class="navbar ms-auto">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="">Login</a>
+            <a href="" class="nav-link">Login</a>
           </li>
         </ul>
       </div>
