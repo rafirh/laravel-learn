@@ -1,16 +1,17 @@
 <?php
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Category;
+
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\SessionController;
-use App\Http\Controllers\CookieController;
-use Illuminate\Support\Facades\Route;
 
-use App\Models\Category;
-use App\Models\User;
+use App\Http\Controllers\CookieController;
+use App\Http\Controllers\SessionController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
