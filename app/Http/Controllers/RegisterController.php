@@ -11,4 +11,13 @@ class RegisterController extends Controller
             'title' => 'Register'
         ]);
     }
+    public function store(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+
+        ]);
+    }
 }
