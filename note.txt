@@ -304,6 +304,11 @@ Episode 16 (User Login dan Middleware)
                 return back()->with('loginError','Login failed!'); // jika false akan return back ke halaman login dan mengirimkan session login failed
             }
         }
+    3. Middleware menyediakan sebuah mekanisme yang memudahkan kita untuk melakukan inpeksi dan filtering http request. Contohnya, laravel sudah menyediakan sebuah middleware yang melakukan verifikasi apakah seorang user dari aplikasi kita sudah ter-otentikasi atau belum. Jika belum ter-otentikasi, maka middleware tadi akan melakukan redirect ke halaman login. Tapi jika sudah ter-otentikasi maka middleware akan mengijinkan kita untuk masuk kedalam aplikasinya.
+    4. Middleware adalah sebuah software yang berjalan di tengah sesuatu.
+    5. Berikut contoh middleware laravel default:
+        a. guest artinya belum login
+        b. auth artinya sudah login/sudah ter-otentikasi.
     
 
 
