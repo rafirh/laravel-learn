@@ -11,4 +11,7 @@ class LoginController extends Controller
             'title' => 'Login'
         ]);
     }
+    public function login(){
+        return view();
+    }
 }

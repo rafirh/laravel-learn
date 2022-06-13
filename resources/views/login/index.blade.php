@@ -14,11 +14,11 @@
                 <form action="/login" method="POST">
                     @csrf
                     <div class="form-floating mb-1">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required autofocus>
                         <label for="email">Email Address</label>
                     </div>
                     <div class="form-floating mb-1">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required >
                         <label for="password">Password</label>
                     </div>
                     <button class="w-100 btn btn-lg btn-danger mt-3" type="submit">Login</button>
