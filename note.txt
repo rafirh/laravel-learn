@@ -287,7 +287,11 @@ Episode 15 (User Registration):
         Oleh karena itu menggunakan fungsi with bisa lebih efektif dan ringkas.
     14. 'password' => [ 'required', Password::min(8)->mixedCase()->letters()->numbers()->symbols()->uncompromised()],
         Code diatas adalah validasi password agar strong, mudah bukan hehe.
-    15. 
+
+Episode 16 (User Login dan Middleware)
+    1. Kita bisa menambahkan attribute autofocus pada element input html, agar saat web di load, otomatis cursor mengarah ke input tersebut, contoh:
+        <input type="text" name="name" autofocus>
+    2. 
     
 
 

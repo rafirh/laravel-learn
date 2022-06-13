@@ -11,7 +11,8 @@
             @endif
             <main class="form-signin w-100 m-auto">
                 <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
-                <form>
+                <form action="/login" method="POST">
+                    @csrf
                     <div class="form-floating mb-1">
                         <input type="email" class="form-control" name="email" id="email" placeholder="Email">
                         <label for="email">Email Address</label>
