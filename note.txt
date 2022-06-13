@@ -265,7 +265,9 @@ Episode 15 (User Registration):
             </div>
         @enderror
     Jadi jika input name tidak sesuai validasi akan menampilkan pesan error berdasarkan validasi.
-    8. 
+    8. Jika inputan error maka value semua inputan akan menjadi kosong, agar tidak kosong kita bisa menambakah sebuat attribute di dalam element input, berikut codenya:
+        <input type="text" name="name" class="@error is-invalid @enderror" value={{ old('name') }}> // tambahkan value={{ old('name inputnya') }}.
+    9. 
 
     
 
