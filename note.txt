@@ -285,7 +285,9 @@ Episode 15 (User Registration):
     13. Fungsi with diatas sama dengan code dibawah ini:
         $request->session()->flash('success', 'Registration successfully');
         Oleh karena itu menggunakan fungsi with bisa lebih efektif dan ringkas.
-    14. 
+    14. 'password' => [ 'required', Password::min(8)->mixedCase()->letters()->numbers()->symbols()->uncompromised()],
+        Code diatas adalah validasi password agar strong, mudah bukan hehe.
+    15. 
     
 
 
