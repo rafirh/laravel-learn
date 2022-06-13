@@ -274,9 +274,13 @@ Episode 15 (User Registration):
         User::create($validatedData);
     10. Mass Asshnment adalah sebuah fitur laravel yang bertugas untuk membatasi field mana saja yang boleh diinput ke database dan yang tidak boleh diinput. Untuk membatasi hal tersebut kita bisa menggunakan 2 variable yaitu $fillable dan $guarded, jika fillable digunakan untuk menyimpan field mana saja yang boleh diisi, dan jika guarded berfungsi untuk menyimpan field mana saja yang tidak boleh diisi. Mass assignment ini bertujuan untuk keamanan inputan dan mempersingkan code saat input, jadi kita hanya perlu menuliskan code ini jika ingin insert data: User::create($request->all());, berikut cara penulisan variable mass assignment di model:
 
-        $fillable = ['name', 'email', 'password'];
-        $guarded = ['id']; // kita bisa menuliskan salah satu variable ini di model.
-    11. 
+        protected $fillable = ['name', 'email', 'password'];
+        protected $guarded = ['id']; // kita bisa menuliskan salah satu variable ini di model.
+
+    11. Kita bisa meng-enkripsi data dengan 2 cara yaitu:
+        a. $validatedData['password'] = bcrypt($validatedData['password']);
+        b. $validatedData['password'] = Hash::make($validatedData['password']);
+    12. 
     
 
 

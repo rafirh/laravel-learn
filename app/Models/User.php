@@ -17,12 +17,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    protected $fillable = [
-        'name',
-        'username',
-        'email',
-        'password',
-    ];
+    protected $guarde = ['id'];
 
     protected $hidden = [
         'password',
