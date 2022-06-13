@@ -248,6 +248,25 @@ Episode 15 (User Registration):
             public funtion create(Reequest $request){
                 return $request->all();
             }
+    5. Kita bisa mengvalidasi request agar tidak sembarangan diproses oleh aplikasi, kita bisa mnggunakan fungsi validate() untuk mengvalidasi request, berikut contoh penggunaannya:
+        public function create (Request $request){
+            $request->validate([
+                'name' => 'required|max:255', // kita bisa menggunakan tanda pipe ( | ) untuk menambahkan validasi apa saja yang dibutuhkan.
+                'username' => ['required','min:3', 'max:255', 'unique:users'] // kita juga bisa menggunakan array untuk menentukan validasi apa saja.
+
+            ]);
+        }
+    6. Jika validasi diatas hasilnya false atau tidak sesuai ketentuan kita bisa memberikan warna kotak inputan menjadi merah error di element input dengan bantuan class bootstrap, kita bisa menyisipkan code ini ke class input:
+        <input type="text" name="name" class="@error is-invalid @enderror"> // @error('name') is-invalid @enderror inilah yang akan menambahkan class is-invalid jika terjadi error pada field name.
+    7. Untuk menampilkan pesan error dari validasi inpuan tersebut kita bisa menggunakan class bootstrap yang bernama invalid-feedback, berikut penggunaannya:
+        @error('name')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    Jadi jika input name tidak sesuai validasi akan menampilkan pesan error berdasarkan validasi.
+    8. 
+
     
 
 
