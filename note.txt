@@ -239,6 +239,15 @@ Episode 15 (User Registration):
             <input type="hidden" name="_token" value="{{ csrf_token() }}" /> // sebenarnya @csrf melakukan ini.
             <input type="email" name="email" />
         </form>
+    4. Ada dua cara mengambil request:
+        a. menggunakan fungsi request():
+            public function create(){
+                return request->all();
+            }
+        b. menggunakan model binding:
+            public funtion create(Reequest $request){
+                return $request->all();
+            }
     
 
 
