@@ -329,6 +329,16 @@ Episode 16 (User Login dan Middleware)
 
     9.  Kita bisa mengambil data user setelah user login dengan cara ini, misalnya mengambil nama:
         {{ auth()->user()->name }}
+    10. Berikut fungsi logout() yang berfungsi untuk logout dan untuk invalidate session:
+        public function logout(Request $request){
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect('/');
+        }
+    11. Kita juga bisa memberi nama route dengan fungsi name('namaroute'), berikut contoh code nya:
+        Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+    12. 
     
 
 
