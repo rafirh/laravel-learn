@@ -282,7 +282,10 @@ Episode 15 (User Registration):
         b. $validatedData['password'] = Hash::make($validatedData['password']); // untuk menggunakan cara ini, jangan lupa untuk mengimport class hash terlebih dahulu, dua cara ini sama-sama menggunakan hash paswwors bcryt.
     12. Kita bisa menggunakan fungsi redirect() untuk berpindah halaman, serta menggunakan fungsi with('alert', 'succes') untuk mengirimkan session, berikut contoh codenya:
         redirect('/login')->with('alert', 'Added account successfully.');
-    13. 
+    13. Fungsi with diatas sama dengan code dibawah ini:
+        $request->session()->flash('success', 'Registration successfully');
+        Oleh karena itu menggunakan fungsi with bisa lebih efektif dan ringkas.
+    14. 
     
 
 
