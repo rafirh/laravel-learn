@@ -296,12 +296,12 @@ Episode 16 (User Login dan Middleware)
             $credentials = $request->validate([
                 'email' => 'rquired|email:dns',
                 'password' => 'required'
-            ]);
-            if(Auth::attemp($credentials)){
+            ]); // digunakan untuk validasi input form
+            if(Auth::attemp($credentials)){ // mengcek apakah email dan password ini terdaftar
                 $request->session()->regenerate();
-                return redirect()->intended('/dashboard');
+                return redirect()->intended('/dashboard'); // jika true akan redirect ke halaman /dashboard, untuk menggunakan intended() karena nantinya akan ada validasi middleware.
             }else{
-                return back()->with('loginError','Login failed!');
+                return back()->with('loginError','Login failed!'); // jika false akan return back ke halaman login dan mengirimkan session login failed
             }
         }
     
