@@ -14,12 +14,24 @@
                 <form action="/login" method="POST">
                     @csrf
                     <div class="form-floating mb-1">
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required autofocus>
+                        <input type="email" class="form-control @error('email') {{ 'is-invalid' }} @enderror" name="email"
+                            id="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
                         <label for="email">Email Address</label>
+                        @error('email')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <div class="form-floating mb-1">
-                        <input type="password" class="form-control" name="password" id="password" placeholder="Password" required >
+                        <input type="password" class="form-control @error('password') {{ 'is-invalid' }} @enderror"
+                            name="password" id="password" placeholder="Password" required>
                         <label for="password">Password</label>
+                        @error('password')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
                     <button class="w-100 btn btn-lg btn-danger mt-3" type="submit">Login</button>
                 </form>
