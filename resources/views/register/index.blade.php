@@ -8,7 +8,7 @@
                     @csrf
                     <div class="form-floating mb-1">
                         <input type="text" class="form-control @error('name') {{ 'is-invalid' }} @enderror" id="name"
-                            name="name" placeholder="Name" value="{{ old('name') }}" required>
+                            name="name" placeholder="Name" value="{{ old('name') }}" required autofocus>
                         <label for="name">Full Name</label>
                         @error('name')
                             <div class="invalid-feedback">
@@ -46,7 +46,7 @@
                             </div>
                         @enderror
                     </div>
-                    <button class="w-100 btn btn-lg btn-danger mt-3" type="submit">Register</button>
+                    <button class="w-100 btn btn-lg btn-danger mt-3" type="submit" onclick="return confirm('Are you sure this data is correct?')">Register</button>
                 </form>
                 <small class="text-center d-block mt-4">Already registered? <a href="/login"
                         class="text-decoration-none">Login</a></small>
