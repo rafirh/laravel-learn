@@ -309,6 +309,26 @@ Episode 16 (User Login dan Middleware)
     5. Berikut contoh middleware laravel default:
         a. guest artinya belum login
         b. auth artinya sudah login/sudah ter-otentikasi.
+    6. Berikut cara menuliskan middleware di route:
+        Route::get('/login', [LoginController::class, 'index'])->middleware('guest'); // artinya hanya guest yang bisa mengakses route ini.
+    7. Cara mengatur default route/route yang akan dibuka ditolak oleh middleware,
+        a. Buka folder App/Providers
+        b. Buka file RouteServiceProvider.php
+        c. ubah variable ini public const HOME = '/home'; menjadi route yang diinginkan.
+    8. Di blade sudah tersedia directive path yang digunakan untuk memunculkan element jika user sudah login atau belum login, yaitu:
+        @auth {{  }} @endauth
+        @guest {{  }} @endguest
+
+        dua hal tersebut bisa ditambahkan else, jadi seperti ini
+
+        @auth
+            {{  }}
+        @else
+            {{  }}
+        @endauth
+
+    9.  Kita bisa mengambil data user setelah user login dengan cara ini, misalnya mengambil nama:
+        {{ auth()->user()->name }}
     
 
 
