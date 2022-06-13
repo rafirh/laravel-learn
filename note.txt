@@ -291,7 +291,19 @@ Episode 15 (User Registration):
 Episode 16 (User Login dan Middleware)
     1. Kita bisa menambahkan attribute autofocus pada element input html, agar saat web di load, otomatis cursor mengarah ke input tersebut, contoh:
         <input type="text" name="name" autofocus>
-    2. 
+    2. Untuk membuat fitur login kita bisa membuat fungsi dalam controller login yang bernama authenticate(), jangan lupa untuk membuat route dengan method post, berikut code untuk fungsi tersebut:
+        public function authenticate(Request $request){
+            $credentials = $request->validate([
+                'email' => 'rquired|email:dns',
+                'password' => 'required'
+            ]);
+            if(Auth::attemp($credentials)){
+                $request->session()->regenerate();
+                return redirect()->intended('/dashboard');
+            }else{
+                return back()->with('loginError','Login failed!');
+            }
+        }
     
 
 
