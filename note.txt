@@ -372,7 +372,7 @@ Episode 17 (Dashboard UI):
 Episode 18 (Create Form Post):
     1. Kita bisa menggunakan fitur eloquent sluggable untuk membuat slug otomatis, berikut cara install nya:
         composer require cviebrock/eloquent-sluggable
-    2. Cara menggunakan tools sluggable:
+    2. Cara menggunakan tools sluggable untuk crete post:
         1). Masuk file model yang akan menggunakan fitur ini, contohnya model post.
         2). Import pakage sluggable, dengan mengtikkan code ini:
             use Cviebrock\EloquentSluggable\Sluggable
@@ -386,4 +386,25 @@ Episode 18 (Create Form Post):
                     ]
                 ];
             }
-    3. 
+        5). Buat fungsi yang bernama createSlug() di model post seperti ini:
+            public function createSlug(Request $request)
+            {
+                $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+                return response()->json(['slug' => $slug]);
+            }
+        jangan lupa untuk inport class SlugService dengan ini:
+            use \Cviebrock\EloquentSluggable\Services\SlugService;
+        fungsi diatas berfungsi untuk menerima request dari url berupa title dam memprosesnya menjadi slug, kemudian dikembalikan berupa response json.
+        6). Ketikkan code javascript ini di dalam file yang ada form create postnya: (pastikan name inputnya title dan slug)
+            <script>
+                const title = document.querySelector('#title');
+                const slug = document.querySelector('#slug');
+
+                title.addEventListener('change', function(){
+                    fetch('/dashboard/posts/createSlug?title=' + title.value)
+                        .then(response => response.json())
+                        .then(data => slug.value = data.slug)
+                });
+            </script>
+        code itu digunakan untuk menangkap inputan berupa title dan mengerimkannya ke fungsi createSlug di controller post, dan mengambil response berupa slug, dan menyisipkannya ke dalam form input utuk slug.
+        7).
