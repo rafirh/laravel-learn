@@ -343,4 +343,11 @@ Episode 16 (User Login dan Middleware)
 Episode 17 (Dashboard UI):
     1. Selain menggunakan bootstrap icon kita juga bisa gunakan feather icon. Berikut cara menampilkan iconnya:
         <span data-feather="log-out(slug-icon)" class="align-text-bottom"></span>
-    
+    2. Kita bisa menggunakan fitur laravel yang bernama resource controller, jadi resource controller digunakan untuk mengelola data CRUD dan akan dibuatkan route CRUD secara otomatis.
+    3. Cara membuat resource controller yaitu dengan menuliskan command ini:
+        php artisan make:controller PostController --resource
+    4. Untuk route resources controller, kita tidak perlu membuat satu-satu route crudnya, kita dapat menuliskannya seperti ini:
+        Route::resource('posts', PostController::class);
+    5. Kita juga bisa saat membuat resource controller memberi imbuhan --model=Post, untuk memberitahu sistem bahwa controller ini terhubung dengan model Post. Berikut commandnya:
+        php artisan make:controller PostController --resource --model=Post
+    6. 
