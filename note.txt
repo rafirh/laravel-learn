@@ -341,18 +341,6 @@ Episode 16 (User Login dan Middleware)
     12. Jika kita ingin mengganti default tabel untuk auth kita bisa menggantinya di Config/Auth.php, default table auth adalah tabel users.
 
 Episode 17 (Dashboard UI):
-    1. Selain menggunakan bootstrap icon kita juga bisa gunakan feather icon
+    1. Selain menggunakan bootstrap icon kita juga bisa gunakan feather icon. Berikut cara menampilkan iconnya:
+        <span data-feather="log-out(slug-icon)" class="align-text-bottom"></span>
     
-
-
-
-    
-
-
-    
-
-
-
-    
-            
-        
