@@ -17,6 +17,7 @@ use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CookieController;
+use App\Http\Controllers\DashboardPostController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
@@ -35,6 +36,7 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
 
 Route::get('/getSession',[SessionController::class, 'getSession']);
 Route::get('/addSession',[SessionController::class, 'addSession']);
