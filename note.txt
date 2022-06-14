@@ -373,4 +373,17 @@ Episode 18 (Create Form Post):
     1. Kita bisa menggunakan fitur eloquent sluggable untuk membuat slug otomatis, berikut cara install nya:
         composer require cviebrock/eloquent-sluggable
     2. Cara menggunakan tools sluggable:
-        1). 
+        1). Masuk file model yang akan menggunakan fitur ini, contohnya model post.
+        2). Import pakage sluggable, dengan mengtikkan code ini:
+            use Cviebrock\EloquentSluggable\Sluggable
+        3). Ketik code ini untuk mengguanakan sluggable di dalam class:
+            use Sluggable;
+        4). Buat funtion dalam class model seperti ini:
+            public function sluggable(): array{
+                return[
+                    'slug' => [
+                        'source' => 'title' // artinya, kita akan membuat slug berdasarkan field title
+                    ]
+                ];
+            }
+    3. 
