@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegisterController;
@@ -24,13 +25,7 @@ Route::get('/posts/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
 
 Route::get('/categories', [CategoryController::class, 'index']);
-Route::get('/authors', function(User $user){
-    return view('authors', [
-        'title' => 'Author',
-        "active" => "authors",
-        'authors' => $user->latest()->get()
-    ]);
-});
+Route::get('/authors', [AuthorController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate']);
