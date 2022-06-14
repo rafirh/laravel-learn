@@ -354,4 +354,18 @@ Episode 17 (Dashboard UI):
         return Post::where('user_id', auth()->user()->id)->get();
     7. Validasi email:dns, tidak support untuk tes@example.org karena dns tersebut tidak terdaftar.
     8. Kita bisa menggunakan variable $loop->iteration untuk memberi nomer pada table.
-    9. 
+    9. Untuk route resource untuk melakukan model binding defaultnya berdasarkan id, untuk merubah hal tersebut kita bisa tambahkan fuction ini di dalam class model nya:
+        public function getRouteKeyName(){
+            return 'slug'; // jika ingin menggunakan slug untuk pencariannya (where).
+        }
+    10. Berikut daftar route resource yang diadakan secara otomatis:
+        code routenya: Route::resource('/posts', PostController::class);
+                         endpoint           | method | fungsi  | route name 
+        daftar route: a. /posts             | GET    | index   | posts.index   // untuk menampilkn data
+                      b. /posts/create      | GET    | create  | create.index  // untuk menampikan form insert data
+                      c. /posts             | POST   | store   | store.index   // untuk insert data dari form
+                      d. /posts/{post}      | GET    | show    | show.index    // untuk menampilkan satu data
+                      e. /posts/{post}/edit | GET    | edit    | edit.index    // untuk menampikan form edit data
+                      f. /posts/{post}      | PUT    | update  | update.index  // untuk update data dari form ke database
+                      g. /posts/{post}      | DELETE | destroy | destroy.index // untuk menghapus data dari database
+    11. 
