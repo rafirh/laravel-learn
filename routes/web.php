@@ -12,6 +12,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\CookieController;
@@ -22,13 +23,7 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post:slug}', [PostController::class, 'getOne']);
 Route::get('/contact', [ContactController::class, 'index']);
 
-Route::get('/categories', function(Category $category){
-    return view('categories', [
-        'title' => 'Categories List',
-        "active" => "categories",
-        'categories' => $category->latest()->get()
-    ]);
-});
+Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/authors', function(User $user){
     return view('authors', [
         'title' => 'Author',
