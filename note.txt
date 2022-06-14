@@ -352,4 +352,6 @@ Episode 17 (Dashboard UI):
         php artisan make:controller PostController --resource --model=Post
     6. Berikut cara mengambil data berdasarkan user yang sedang login:
         return Post::where('user_id', auth()->user()->id)->get();
-    7. 
+    7. Validasi email:dns, tidak support untuk tes@example.org karena dns tersebut tidak terdaftar.
+    8. Kita bisa menggunakan variable $loop->iteration untuk memberi nomer pada table.
+    9. 
