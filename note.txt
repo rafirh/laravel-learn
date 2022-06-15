@@ -432,5 +432,14 @@ Episode 18 (Create Form Post):
             })
 
 Episode 19 (Validation form post and insert form):
-    1. 
+    1. Jika menggunakan trix editor, kita bisa menyisipkan valuenya di bagian hidden input saat ada validasi lain yang salah berikut codenya:
+        <label for="body" class="form-label">Body</label>
+        <input id="body" type="hidden" name="body" value="{{ old('body') }}">
+        <trix-editor input="body"></trix-editor>
+        @error('body')
+            <p class="text-danger">{{ $message }}</p>
+        @enderror
+    2. Kita bisa menggunagan fungsi Str::limit() untuk membuat excerpt secara ototatis berdasarkan body, berikut codenya:
+        $validatedData['excerpt'] = Str::limit($request->body, 100, '...'); // Str::limit('string', 'jumlah limit', 'imbuhan apa untuk di paling belakang');
+    3. 
 
