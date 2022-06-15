@@ -407,4 +407,30 @@ Episode 18 (Create Form Post):
                 });
             </script>
         code itu digunakan untuk menangkap inputan berupa title dan mengerimkannya ke fungsi createSlug di controller post, dan mengambil response berupa slug, dan menyisipkannya ke dalam form input utuk slug.
-        
+    3. Untuk form input body postingan kita bisa menggunakan beberapa text editor seperti trix editor, ckeditor, dll.
+    4. Untuk project ini kita menggunakan trix editor, berikut cara pakainya:
+        a. buka github trix editor berikut link nya: https://github.com/basecamp/trix
+        b. download repositori itu.
+        c. copy file trix.css dan trix.js ke dalam folder public/css dan public/js.
+        d. import file css dan js di dalam file main.blade.php berikut codenya:
+            {{-- Style for trix editor --}}
+            <link rel="stylesheet" type="text/css" href="/css/trix.css">
+            <script type="text/javascript" src="/js/trix.js"></script>
+        e. tuliskan code html ini beserta inputannya, untuk menampilkan trix editornya:
+            <label for="body" class="form-label">Body</label>
+            <input id="body" type="hidden" name="body">
+            <trix-editor input="body"></trix-editor> // untuk attribute input di tag trix dan attribute id di tag input harus sama.
+        f. jika default trix terdapat tools untuk mengupload file gambar, untuk menghilangkannya kita bisa menggunakan code css ini di tag head:
+            <style>
+                trix-toolbar [data-trix-button-group="file-tools"] {
+                    display: none;
+                }
+            </style>
+        kemudian tambahkan script javascrit ini:
+            document.addEventListener('trix-file-accept', function(e){
+                e.preventDefault();
+            })
+
+Episode 19 (Validation form post and insert form):
+    1. 
+
