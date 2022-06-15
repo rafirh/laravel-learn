@@ -568,5 +568,10 @@ Episode 20 (Update dan Delete Post):
             abort(403);
         }
     jadi fungsi abort(403), menampilkan view forbidden dengan status 403. Kita bisa tambahkan ini ke dalam fungsi show, edit, dan store.
-    
+
+Episode 21 (Upload Image):
+    1. Jika kita ingin input type file, kita harus menambahkan attribute pada tag form yaitu enctype="multipart/form-data", berikut contohnya:
+        <form action="/dashboard/posts" method="POST" class="mb-5" enctype="multipart/form-data">
+        </form>
+    2. 
     
