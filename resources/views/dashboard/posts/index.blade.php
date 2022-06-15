@@ -10,34 +10,40 @@
             </div>
         @endif
         <a href="/dashboard/posts/create" class="btn btn-primary mb-2">Create new post</a>
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr>
-                    <th scope="col">No.</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($posts as $post)
+        @if ($posts->count())
+            <table class="table table-striped table-sm">
+                <thead>
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->category->name }}</td>
-                        <td>
-                            <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span
-                                    data-feather="eye"></span></a>
-                            <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
-                            <form action="/dashboard/posts/{{ $post->id }}" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Are you sure delete this post?')"><span data-feather="x-circle"></span></button>
-                            </form>
-                        </td>
+                        <th scope="col">No.</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Action</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($posts as $post)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $post->title }}</td>
+                            <td>{{ $post->category->name }}</td>
+                            <td>
+                                <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><span
+                                        data-feather="eye"></span></a>
+                                <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
+                                <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="badge bg-danger border-0"
+                                        onclick="return confirm('Are you sure delete this post?')"><span
+                                            data-feather="x-circle"></span></button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @else
+            <p class="text-center fs-5">Post not found.</p>
+        @endif
     </div>
 @endsection

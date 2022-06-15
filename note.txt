@@ -445,14 +445,20 @@ Episode 19 (Validation form post and insert form):
 
 Episode 20 (Update dan Delete Post):
     1. Dikarenakan pada form html biasa hanya support 2 method form yaitu get dan posts, jika kita ingin menggunakan method delete kita bisa gunakan form seperti ini:
-        <form action="/dashboard/posts/{{ $post->id }}" method="post">
+        <form action="/dashboard/posts/{{ $post->slug }}" method="post">
             @method('delete') // tambahan ini
             @csrf
             <button type="submit" class="badge bg-danger"><span data-feather="x-circle"></span></button>
         </form>
     2. Form diatas akan berbentuk display block, dan karena itu button maka akan ada bordernya, berikut untuk mengembalikan tampilannya:
-        <form action="/dashboard/posts/{{ $post->id }}" method="post" class="d-inline">
+        <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
             @method('delete')
             @csrf
             <button type="submit" class="badge bg-danger border-0"><span data-feather="x-circle"></span></button>
         </form>
+    3. Berikut fungsi destroy pada controller post untuk menghapus postingan:
+        public function destroy(Post $post)
+        {
+            Post::destroy($post->id);
+            return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
+        }
