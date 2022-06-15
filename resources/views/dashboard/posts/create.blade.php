@@ -4,7 +4,7 @@
         <h1 class="h2">Create new post</h1>
     </div>
     <div class="col-lg-8">
-        <form action="/dashboard/posts" method="POST">
+        <form action="/dashboard/posts" method="POST" class="mb-5">
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
