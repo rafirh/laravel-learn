@@ -577,5 +577,11 @@ Episode 21 (Upload Image):
         return $request()->file('image')->store('post-images');
     artinya tangkap request berupa file yg nama imputannya IMAGE, kemudian simpan ke dalam folder /storage/app/post-image dengan nama yg random.
     3. Unutk mengatur upload file di laravel sudah disediakan tool yang bernama FLYSYSTEM. keren bukan ?
-    4. 
+    4. Untuk mengatur default penyimpanan file kita bisa konfigurasi di file config/filesystems.php, disana tertulis bahwa default penyimpanan ada di folder storage/app/
+    5. Dikarenakan jika file disimpan di storage/app tidak bisa diakses secara public maka kita harus merubah default filesystem yg sebelumnya local menjadi public, kita bisa merubahnya di environment variable yg variable nya bernama FILESYSTEM_DRIVER.
+    6. Kita juga perlu konfigurasi lagi agar folder storage/public bisa diakses, proses ini dinamakan symbolic link, berikut caranya:
+        -ketikkan command berikut:
+            php artisan storage:link
+        ini digunakan untuk mengkoneksikan antara folder storage/public dan folder public application
+    
     
