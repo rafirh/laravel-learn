@@ -573,5 +573,9 @@ Episode 21 (Upload Image):
     1. Jika kita ingin input type file, kita harus menambahkan attribute pada tag form yaitu enctype="multipart/form-data", berikut contohnya:
         <form action="/dashboard/posts" method="POST" class="mb-5" enctype="multipart/form-data">
         </form>
-    2. 
+    2. Cara upload file, berikut cara file dengan fungsi store(), yg masih belum ada validasi file sama sekali:
+        return $request()->file('image')->store('post-images');
+    artinya tangkap request berupa file yg nama imputannya IMAGE, kemudian simpan ke dalam folder /storage/app/post-image dengan nama yg random.
+    3. Unutk mengatur upload file di laravel sudah disediakan tool yang bernama FLYSYSTEM. keren bukan ?
+    4. 
     
