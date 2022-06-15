@@ -407,4 +407,4 @@ Episode 18 (Create Form Post):
                 });
             </script>
         code itu digunakan untuk menangkap inputan berupa title dan mengerimkannya ke fungsi createSlug di controller post, dan mengambil response berupa slug, dan menyisipkannya ke dalam form input utuk slug.
-        7).
+        
