@@ -462,3 +462,14 @@ Episode 20 (Update dan Delete Post):
             Post::destroy($post->id);
             return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
         }
+    4. Berikut cara membuat form update:
+        a. Code untuk fungsi edit di controller post:
+            public function edit(Post $post)
+            {
+                return view('dashboard.posts.edit', [
+                    'title' => 'Edit Post',
+                    'post' => $post,                 // data ini yang akan diedit di form edit
+                    'categories' => Category::all()  // untuk select form
+                ]);
+            }
+        b. Berikut form untuk 
