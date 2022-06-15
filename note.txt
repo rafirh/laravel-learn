@@ -583,5 +583,16 @@ Episode 21 (Upload Image):
         -ketikkan command berikut:
             php artisan storage:link
         ini digunakan untuk mengkoneksikan antara folder storage/public dan folder public application
+    7. Berikut cara untuk mengvalidasi image, hampir sama seperti inputan yang lain. Berikut codenya:
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'slug' => 'required|unique:posts',
+            'image' => 'image|file|max:1024',  // ini unutk validasi image
+            'category_id' => 'required',
+            'body' => 'required'
+        ]);
+        if($request->file('image')){ // jika image itu 
+            $validatedData['image'] = $request->file('image')->store('post-images'); 
+        }
     
     
