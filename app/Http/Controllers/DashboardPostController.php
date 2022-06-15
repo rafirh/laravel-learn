@@ -52,7 +52,7 @@ class DashboardPostController extends Controller
         ]);
 
         $validatedData['user_id'] = auth()->user()->id;
-        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200, '...');
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
         Post::create($validatedData);
         return redirect('/dashboard/posts')->with('success', 'A new post has been created!');
@@ -103,7 +103,8 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Post::destroy($post);
+        return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
     }
 
     public function createSlug(Request $request)
