@@ -531,4 +531,42 @@ Episode 20 (Update dan Delete Post):
         d. Ingat untuk url ini:
             edit: /posts/{{ $post->slug }}/edit // untuk menampilkan form, method = get
             update: /posts/{{ $post->slug }} // untuk proses update, method = put
+        e. Berikut untuk fungsi update():
+            public function update(Request $request, Post $post)
+            {
+                $rules = [
+                    'title' => 'required|max:255',
+                    'category_id' => 'required',
+                    'body' => 'required'
+                ];
+
+                if($request->slug != $post->slug){
+                    $rules['slug'] = 'required|unique:posts';
+                }else{
+                    $rules['slug'] = 'required';
+                }
+
+                $validatedData = $request->validate($rules);
+
+                $validatedData['user_id'] = auth()->user()->id;
+                $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
+
+                Post::where('id', $post->id)->update($validatedData);
+                return redirect('/dashboard/posts')->with('success', 'Post has been edited!');
+            }
+        f. Berikut alur dari fungsi update:
+            1. Deklaradi rules untuk validasi request.
+            2. Jika slug tidak diubah maka validasinya akan required saja, karena jika ada validasi unique maka tidak lolos validasi.
+            3. Jika slug diubah maka validasi slugnya required dan unique:posts.
+            4. Kemudian validasi request berdasarkan rules yg sudah dideklarasikan dan disimpan di variable $validatedData.
+            5. Kemudian simpan user_id ke variable $validatedData.
+            6. Kemudian simpan excerpt yg sudah di limit ke variable $validatedData.
+            7. Lalu barulah menjalankan fungsi update dengan parameter $validatedData, berdasarkan id post. (id post diambil berdasarkan slug post)
+            8. Terakhir redirect ke halaman daftar post, dan dengan mengembalikan session berupa alert.
+    5. PENTING: Untuk membatasi user agar hanya bisa mengelola postingannya sendiri kita bisa sisipkan script ini:
+        if($post->author->id !== auth()->user()->id) {
+            abort(403);
+        }
+    jadi fungsi abort(403), menampilkan view forbidden dengan status 403. Kita bisa tambahkan ini ke dalam fungsi show, edit, dan store.
+    
     
