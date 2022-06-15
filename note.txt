@@ -442,5 +442,6 @@ Episode 19 (Validation form post and insert form):
     2. Kita bisa menggunagan fungsi Str::limit() untuk membuat excerpt secara ototatis berdasarkan body, berikut codenya:
         $validatedData['excerpt'] = Str::limit($request->body, 100, '...'); // Str::limit('string', 'jumlah limit', 'imbuhan apa untuk di paling belakang, default: '...');
     jika string tersebut mengandung tag html kita bisa gunakan fungsi strip_tags() untuk menghilangkan tag nya.
-    3. 
 
+Episode 20 (Update dan Delete Post):
+    1. 
