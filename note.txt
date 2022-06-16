@@ -657,6 +657,64 @@ Episode 23 (Authorization):
     5. Kita juga bisa membuat middleware kita sendiri dan meng custom logic nya, berikut command untuk membuat middleware:
         php artisan make:middleware <nama middleware>
     6. Sebelum kita menggunakan middlewre tersebut kita harus mendaftarkannya terlebih dahulu di file App/Http/kernel.php, seperti ini:
-        
+        protected $routeMiddleware = [
+            'auth' => \App\Http\Middleware\Authenticate::class,
+            'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+            'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+            'can' => \Illuminate\Auth\Middleware\Authorize::class,
+            'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+            'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+            'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+            'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+            'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+            'admin' => \App\Http\Middleware\isAdmin::class // tambahkan baris ini untuk menambahkan middleware isAdmin
+        ];
+    7. Berikut untuk code di dalam kelas isAdmin:
+        public function handle(Request $request, Closure $next)
+        {
+            if(auth()->guest() || auth()->user()->username !== 'rafirahman'){ // untuk memberi akses
+                return abort(403);
+            }
+            return $next($request);
+        }
+    8. Gate adalah tool laravel yang digunakan membatasi aksi user.
+    9. Kita mengganti cara kita untuk membuat middleware manual dengan cara menggunakan fitur gate ini yg pastinya lebih singkat.
+    10. Gate diperuntukkan untuk user yg sudah login jadi gate ini yg memperluas middleware untuk user yg sudah login.
+    11. Berikut cara untuk membuat mengdefinisikan gate:
+        - Buka file App/Providers/AppServiceProvider.php
+        - Tuliskan code ini di dalam fungsi boot:
+            public function boot()
+            {
+                Paginator::useBootstrap(); // ini bukan
+
+                Gate::define('admin', function(User $user){ // tuliskan ini, ini berfungsi untuk mengecek apakah user yg login role nya admin atau bukan.
+                    return $user->role == 'admin';
+                });
+            }
+    12. Berikut contoh penggunaan gate pada php dan blade:
+        - php:
+            public function index()
+            {
+                $this->authorize('admin'); // authorize('<nama gate>'), jika user yg login bukan admin maka halaman tersebut akan menampilkan fobidden 403.
+                return view('dashboard.categories.index', [
+                    'title' => 'Categories',
+                    'categories' => Category::all()
+                ]);
+            }
+        - blade:
+            @can('admin') // jika user yg login adalah admin maka akan menampilkan element html ini.
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-3 mb-1 text-muted">
+                    <span>ADMINISTRATOR</span>
+                </h6>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }}" href="/dashboard/categories">
+                            <span data-feather="list" class="align-text-bottom"></span>
+                            Post Categories
+                        </a>
+                    </li>
+                </ul>
+            @endcan
+    13. 
 
 
