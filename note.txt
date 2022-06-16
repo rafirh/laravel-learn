@@ -678,7 +678,7 @@ Episode 23 (Authorization):
             return $next($request);
         }
     8. Gate adalah tool laravel yang digunakan membatasi aksi user.
-    9. Kita mengganti cara kita untuk membuat middleware manual dengan cara menggunakan fitur gate ini yg pastinya lebih singkat.
+    9. Gate bisa digunakan dimana saja, di controller, blade, dll.
     10. Gate diperuntukkan untuk user yg sudah login jadi gate ini yg memperluas middleware untuk user yg sudah login.
     11. Berikut cara untuk membuat mengdefinisikan gate:
         - Buka file App/Providers/AppServiceProvider.php
@@ -715,6 +715,27 @@ Episode 23 (Authorization):
                     </li>
                 </ul>
             @endcan
-    13. 
+    13. Jadi kita bisa gunakan gate untuk membatasi tampilan user dengan @can('') @endcan, yg sebelumnya kita mengguanakan if-else
+    14. Kekurangan gate adalah tidak fleksibel seperti middleware.
+    15. Jika kita ingin menambahkan kolom baru pada tabel yg sudah di migrasi, tapi kita tidak mau menjalankan migrate:fresh atau me-reset ulang database kita bisa gunakan cara ini:
+        - Buat migration dengan nama bebas, contohnya add_is_admin_to_users_table.
+        - Kemudian pilih opsi jika kita tidak akan membuat tabel baru, dan tentukan table mana yg ingin di ubah pada command pallete
+        - Edit file migration tersebut pada fungsi up dan down:
+            public function up()
+            {
+                Schema::table('users', function (Blueprint $table) {
+                    $table->boolean('is_admin')->default(false);  // digunakan untuk menambahkan field baru yg bernama is_admin dengan default value false
+                });
+            }
+            public function down()
+            {
+                Schema::table('users', function (Blueprint $table) {
+                    $table->dropColumn('is_admin');   // digunakan untuk menghapus kolom saat perintah rollback dijalankan
+                });
+            }
+        - Jalankan perintah ini:
+            php artisan migrate // maka kolom tersebut akan ditambahkan tanpa memberi efek pada tabel lainnya.
+    16. 
+
 
 
