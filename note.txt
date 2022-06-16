@@ -605,6 +605,24 @@ Episode 21 (Upload Image):
 
 Episode 22 (Membuat fitur preview, update, dan delete image):
     1. Kita bisa tambahkan class pada tag img yaitu img-fluid agar gambar kita bisa responsif.
-    2. 
-    
+    2. Kita bisa memberikan preview image dengan bantuan javascript, berikut untuk code html input nya:
+        <img class="image-preview img-fluid mb-3 col-md-5">
+        <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+    berikut untuk script javasript nya:
+        function previewImage() {
+            const image = document.querySelector('#image');
+            const imgPreview = document.querySelector('.image-preview');
+
+            imgPreview.style.display = 'block';
+
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
+    3. 
+
+
     
