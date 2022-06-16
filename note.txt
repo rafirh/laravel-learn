@@ -602,6 +602,9 @@ Episode 21 (Upload Image):
             <img src="https://source.unsplash.com/random/1200x400?{{ $post->category->name }}"
                 alt="{{ $post->category->name }}" class="img-fluid mt-3">
         @endif
-    
+
+Episode 22 (Membuat fitur preview, update, dan delete image):
+    1. Kita bisa tambahkan class pada tag img yaitu img-fluid agar gambar kita bisa responsif.
+    2. 
     
     
