@@ -526,7 +526,7 @@ Episode 20 (Update dan Delete Post):
                 <a href="/dashboard/posts" class="btn btn-danger">Cancel</a>
             </form>
         c. Dari code diatas, cara untuk menampilkan data yg akan diupdate dan data old yaitu begini:
-            value="{{ old('title', $post->title) }}" 
+            value="{{ old('title', $post->title) }}"
         artinya jika value old tidak ada maka tampilkan $post->title, dan jika value old ada ya tampilkan old('title').
         d. Ingat untuk url ini:
             edit: /posts/{{ $post->slug }}/edit // untuk menampilkan form, method = get
@@ -591,14 +591,14 @@ Episode 21 (Upload Image):
             'category_id' => 'required',
             'body' => 'required'
         ]);
-        if($request->file('image')){ // jika image itu 
-            $validatedData['image'] = $request->file('image')->store('post-images'); 
+        if($request->file('image')){ // jika image itu
+            $validatedData['image'] = $request->file('image')->store('post-images');
         }
     8. Untuk input image tidak required jadi jika user tidak menginputkan image, image yang ditampilkan diambil dari unplash, berikut untuk menampilkan image di halaman show:
         @if ($post->image) // jika fiel image ada atau tidak null.
             <img src="{{ asset('storage/' . $post->image) }}" // digunakan untuk mengambil gambahr dari folder public/storage/post-image
                 alt="{{ $post->category->name }}" class="img-fluid mt-3">
-        @else    
+        @else
             <img src="https://source.unsplash.com/random/1200x400?{{ $post->category->name }}"
                 alt="{{ $post->category->name }}" class="img-fluid mt-3">
         @endif
@@ -648,7 +648,9 @@ Episode 22 (Membuat fitur preview, update, dan delete image):
 
 Episode 23 (Authorization):
     1. Laravel sudah menyediakan fitur untuk authorization, fitur tersebut yaitu gates dan policies.
-    2. 
+    2. Kita bisa melihat daftar route kita yg sudah terdeteksi aplikasi dengan mengetikkan command ini:
+        php artisan route:list
+    3. 
 
 
-    
+
