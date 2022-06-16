@@ -647,7 +647,8 @@ Episode 22 (Membuat fitur preview, update, dan delete image):
         }
 
 Episode 23 (Authorization):
-    1. 
+    1. Laravel sudah menyediakan fitur untuk authorization, fitur tersebut yaitu gates dan policies.
+    2. 
 
 
     
