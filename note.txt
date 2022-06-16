@@ -646,7 +646,8 @@ Episode 22 (Membuat fitur preview, update, dan delete image):
             return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
         }
 
-
+Episode 23 (Authorization):
+    1. 
 
 
     
