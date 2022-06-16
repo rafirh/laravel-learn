@@ -24,8 +24,15 @@
             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)"><a
                     href="/posts?category={{ $posts[0]->category->slug }}"
                     class="text-decoration-none text-white">{{ $posts[0]->category->name }}</a></div>
-            <img src="https://source.unsplash.com/random/1200x400?{{ $posts[0]->category->name }}" class="card-img-top"
-                alt="{{ $posts[0]->category->name }}">
+            @if ($posts[0]->image)
+                <div style="max-height: 400px; overflow: hidden;">
+                    <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="{{ $posts[0]->category->name }}"
+                        class="img-fluid">
+                </div>
+            @else
+                <img src="https://source.unsplash.com/random/1200x400?{{ $posts[0]->category->name }}"
+                    class="card-img-top" alt="{{ $posts[0]->category->name }}">
+            @endif
             <div class="card-body text-center">
                 <h5 class="card-title text-decoration-none text-dark"><a href="/posts/{{ $posts[0]->slug }}"
                         class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h5>
@@ -48,8 +55,13 @@
                             <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)"><a
                                     href="/posts?category={{ $post->category->slug }}"
                                     class="text-decoration-none text-white">{{ $post->category->name }}</a></div>
-                            <img src="https://source.unsplash.com/random/500x300?{{ $post->category->name }}"
-                                class="card-img-top" alt="{{ $post->category->name }}">
+                            @if ($post->image)
+                                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}"
+                                    class="img-fluid">
+                            @else
+                                <img src="https://source.unsplash.com/random/500x300?{{ $post->category->name }}"
+                                    class="card-img-top" alt="{{ $post->category->name }}">
+                            @endif
                             <div class="card-body">
                                 <h5 class="card-title">{{ $post->title }}</h5>
                                 <p>

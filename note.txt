@@ -594,5 +594,14 @@ Episode 21 (Upload Image):
         if($request->file('image')){ // jika image itu 
             $validatedData['image'] = $request->file('image')->store('post-images'); 
         }
+    8. Untuk input image tidak required jadi jika user tidak menginputkan image, image yang ditampilkan diambil dari unplash, berikut untuk menampilkan image di halaman show:
+        @if ($post->image) // jika fiel image ada atau tidak null.
+            <img src="{{ asset('storage/' . $post->image) }}" // digunakan untuk mengambil gambahr dari folder public/storage/post-image
+                alt="{{ $post->category->name }}" class="img-fluid mt-3">
+        @else    
+            <img src="https://source.unsplash.com/random/1200x400?{{ $post->category->name }}"
+                alt="{{ $post->category->name }}" class="img-fluid mt-3">
+        @endif
+    
     
     
