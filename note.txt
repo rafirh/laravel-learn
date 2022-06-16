@@ -622,7 +622,21 @@ Episode 22 (Membuat fitur preview, update, dan delete image):
                 imgPreview.src = oFREvent.target.result;
             }
         }
-    3. 
+    3. Berikut cara untuk menghapus file di storage:
+        Storage::delete('nama file serta folder');
+    Jangan lupa import class storage terlebih dahulu dengan ini:
+        use Illuminate\Support\Facades\Storage;
+    4. Berikut cara update gambar agar gambar yang lama juga terhapus:
+        a. Sediakan inputan hidden yg menyimpan file lama:
+            <input type="hidden" name="oldImage" value="{{ $post->image }}">
+        b. Cek inputan tersebut dengan if:
+            if($request->file('image')){ // untuk mengecek apakah user upload image baru/ingin mengedit gambar
+                if($request->oldImage){ // mengcek apakah sebelumnya user menggunakan gambar untuk postingannya, jika tidak ya tidak ada yang dihapus
+                    Storage::delete($request->oldImage); // perintah untuk menghapus file
+                }
+                $validatedData['image'] = $request->file('image')->store('post-images'); // menambahkan field image untuk update ke database.
+            }
+        c. 
 
 
     
