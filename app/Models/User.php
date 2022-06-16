@@ -17,7 +17,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    protected $guarded = ['id'];
+    protected $guarded = ['id', 'is_admin'];
 
     protected $hidden = [
         'password',
