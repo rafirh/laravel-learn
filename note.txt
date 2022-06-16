@@ -656,6 +656,7 @@ Episode 23 (Authorization):
         auth()->check(); // akan menghasilkan true jika user sudah login, dan menghasilkan false jika user belum login.
     5. Kita juga bisa membuat middleware kita sendiri dan meng custom logic nya, berikut command untuk membuat middleware:
         php artisan make:middleware <nama middleware>
-    6. 
+    6. Sebelum kita menggunakan middlewre tersebut kita harus mendaftarkannya terlebih dahulu di file App/Http/kernel.php, seperti ini:
+        
 
 
