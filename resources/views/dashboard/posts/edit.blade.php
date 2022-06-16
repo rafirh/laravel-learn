@@ -7,7 +7,6 @@
         <form action="/dashboard/posts/{{ $post->slug }}" method="POST" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
-            <input type="hidden" name="oldImage" value="{{ $post->image }}">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"

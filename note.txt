@@ -636,7 +636,17 @@ Episode 22 (Membuat fitur preview, update, dan delete image):
                 }
                 $validatedData['image'] = $request->file('image')->store('post-images'); // menambahkan field image untuk update ke database.
             }
-        c. 
+    5. Berikut untuk fitur delete image, kita hanya butuh menambahkan script ini ke fungsi destroy pada controller post:
+        public function destroy(Post $post)
+        {
+            if($post->image){ // dicek apakah postingan yg akan dihapus menyimpan field image, jika iya maka akan menjalankan perintah untuk menghapus file di storage.
+                Storage::delete($post->image);
+            }
+            Post::destroy($post->id);
+            return redirect('/dashboard/posts')->with('success', 'Post has been deleted!');
+        }
+
+
 
 
     
