@@ -22,7 +22,7 @@
                 <h1 class="h3 mb-3 fw-normal text-center">Login</h1>
                 <form action="/login" method="POST">
                     @csrf
-                    <div class="form-floating mb-2">
+                    <div class="form-floating mb-1">
                         <input type="email" class="form-control @error('email') {{ 'is-invalid' }} @enderror" name="email"
                             id="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
                         <label for="email">Email Address</label>
