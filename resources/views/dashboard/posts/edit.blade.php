@@ -47,7 +47,11 @@
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Post Image</label>
-                <img class="image-preview img-fluid mb-3 col-md-5">
+                @if ($post->image)
+                    <img src="{{ asset('storage/' . $post->image) }}" class="image-preview img-fluid mb-3 col-md-5 d-block">
+                @else
+                    <img class="image-preview img-fluid mb-3 col-md-5">
+                @endif
                 <input class="form-control @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
                 @error('image')
                     <div class="invalid-feedback">
