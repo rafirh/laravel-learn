@@ -737,6 +737,10 @@ Episode 23 (Authorization):
             php artisan migrate // maka kolom tersebut akan ditambahkan tanpa memberi efek pada tabel lainnya.
     16. Berikut command yg digunakan untuk membuat migrasi baru yg digunakan untuk edit tabel
         php artisan make:migration add_is_admin_to_users_table --table=users // jadi command ini akan membuat file migrasi dengan nama add_is_admin_to_users_table yg digunakan untuk mengubah field di dalam table users.
-    
+
+Episode 24 (Upload ke hosting):
+    1. name: ikiblok
+       password: n8wyKqc!nz%5fYAX1VDa
+
 
 
