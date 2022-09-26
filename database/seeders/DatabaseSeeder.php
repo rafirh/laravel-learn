@@ -16,38 +16,35 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-                'name' => 'Muhammad Rafi Rahman Habibi',
-                'username' => 'rafirahman',
-                'email' => 'rafirahmann18@gmail.com',
-                'password' => bcrypt('password')
-            ]);
-            
-            // User::create([
-                //     'name' => 'Hadi Ahmad',
-                //     'email' => 'hadi@gmail.com',
-                //     'password' => bcrypt('hadi')
-                // ]);
-                
-        
-        Category::create([
-            'name' => 'Web Programming',
-            'slug' => 'web-programming'
+        $this->call([
+            UserSeeder::class
         ]);
 
-        Category::create([
-            'name' => 'Web Design',
-            'slug' => 'web-design'
-        ]);
+        // User::create([
+            // 'name' => 'Muhammad Rafi Rahman Habibi',
+            // 'username' => 'rafirahman',
+            // 'email' => 'rafirahmann18@gmail.com',
+            // 'password' => bcrypt('password'),
+        // ]);
 
-        Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
-        ]);
+        // Category::create([
+        //     'name' => 'Web Programming',
+        //     'slug' => 'web-programming',
+        // ]);
 
-        User::factory(5)->create();
+        // Category::create([
+        //     'name' => 'Web Design',
+        //     'slug' => 'web-design',
+        // ]);
 
-        Post::factory(30)->create();
+        // Category::create([
+        //     'name' => 'Personal',
+        //     'slug' => 'personal',
+        // ]);
+
+        // User::factory(5)->create();
+
+        // Post::factory(30)->create();
 
         // Post::create([
         //     'title' => 'What is API ?',
